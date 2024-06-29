@@ -1,10 +1,23 @@
 
 const sequelize = require('../db');
 const Component = require('./component');
+const User = require('./user');
+const ChangeLog = require('./changeLog');
 
-const db = {
+const models = {
   sequelize,
-  Component
+  Component,
+  User,
+  ChangeLog
 };
 
-module.exports = db;
+Object.keys(models).forEach(modelName => {
+  if (models[modelName].associate) {
+    models[modelName].associate(models);
+  }
+});
+
+module.exports = {
+  ...models,
+  sequelize
+};

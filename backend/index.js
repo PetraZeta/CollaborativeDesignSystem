@@ -2,6 +2,7 @@ const express= require('express');
 const {graphqlHTTP}= require('express-graphql');
 const schema= require('./schema');
 const sequelize = require('./db');
+require('dotenv').config();
 
 const app= express();
 
@@ -10,7 +11,7 @@ app.use('/graphql', graphqlHTTP({
     graphiql:true,
 }));
 
-const PORT = 4000;
+const PORT = process.env.PORT;
 app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
   try {

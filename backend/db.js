@@ -1,7 +1,10 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
-const sequelize = new Sequelize('db_collaborativeDS', 'postgres', '123456', {
-  host: '127.0.0.1',
+const {HOST, DB, DB_USER, DB_PASSWORD }= process.env;
+
+const sequelize = new Sequelize(DB, DB_USER, DB_PASSWORD, {
+  host: HOST,
   dialect: 'postgres'
 });
 
