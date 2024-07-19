@@ -2,7 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button';
 
+
+
 function App() {
+  const clickBoton= () =>{
+    console.log("hola")
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +23,7 @@ function App() {
         >
           Learn React
         </a>
-        <Button>Hola Mundo</Button>
+        <Button type="secondary" onClick={clickBoton}>Hola Mundo</Button>
       </header>
     </div>
   );

@@ -8,17 +8,19 @@ const config = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    "@storybook/addon-designs",
   ],
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["../public"], // Nota: Usa '/' en lugar de '\\' para rutas en UNIX
+  docs: {},
+  staticDirs: ["../public"], 
   webpackFinal: async (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       os: require.resolve('os-browserify/browser'),
-      // Puedes agregar otros polyfills aquí si los necesitas
+    
     };
     return config;
   },
